@@ -78,6 +78,8 @@ class TimeSelctionViewController: UIViewController, UIPickerViewDataSource, UIPi
         if(time < 30){
             secondViewController.time = time
         }
+        secondViewController.deck = deck
+        secondViewController.time = time
         
     }
     

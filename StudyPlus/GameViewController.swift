@@ -9,13 +9,16 @@
 import UIKit
 
 class GameViewController: UIViewController {
+    @IBOutlet weak var wordField: UILabel!
     var time:Int?
     var deck:Deck?
+    var counter = 0
+    var index = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(String(time))
-        print(deck)
+        wordField.text = deck?.getArray()[index].name
+        
 
         // Do any additional setup after loading the view.
     }
@@ -25,6 +28,15 @@ class GameViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func screenSwiped(sender: AnyObject) {
+        counter++
+        if(index < ((deck?.getArray().count)! - 1)){
+            index++
+        }else{
+            index = 0
+        }
+        wordField.text = deck?.getArray()[index].name
+    }
 
     /*
     // MARK: - Navigation

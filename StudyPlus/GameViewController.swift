@@ -10,15 +10,35 @@ import UIKit
 
 class GameViewController: UIViewController {
     @IBOutlet weak var wordField: UILabel!
-    var time:Int?
+    @IBOutlet weak var progressBar: UIProgressView!
+    var timer:NSTimer?
+    var time:NSTimeInterval?
     var deck:Deck?
+    var timeCounter = 0
     var counter = 0
     var index = 0
-
+    var refreshRate = 0.01
+    var progress:Double = 0.0
+    var date:NSDate = NSDate()
+    var timeToStop:NSTimeInterval = 0.0
+    
+    override func viewWillAppear(animated: Bool) {
+        progress = 0.0
+        date = NSDate()
+        timeToStop = time!
+        timer = NSTimer(timeInterval: refreshRate, target: self, selector: "updateProgress", userInfo: nil, repeats: true)
+        NSRunLoop.currentRunLoop().addTimer(timer!, forMode: NSRunLoopCommonModes)
+        wordField.text = deck?.getArray()[index].name
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        if let timer = timer {
+            timer.invalidate()
+            self.timer = nil
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        wordField.text = deck?.getArray()[index].name
-        
 
         // Do any additional setup after loading the view.
     }
@@ -37,7 +57,18 @@ class GameViewController: UIViewController {
         }
         wordField.text = deck?.getArray()[index].name
     }
-
+    
+    func updateProgress(){
+        progress = date.timeIntervalSinceNow * -1
+        print(progress)
+        progressBar.progress = Float(progress/timeToStop)
+        if(progressBar.progress >= 1.0){
+            print("time is up")
+            timer?.invalidate()
+            timer = nil
+        }
+        
+    }
     /*
     // MARK: - Navigation
 

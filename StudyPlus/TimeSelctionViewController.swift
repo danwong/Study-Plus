@@ -17,14 +17,13 @@ class TimeSelctionViewController: UIViewController, UIPickerViewDataSource, UIPi
     @IBOutlet weak var labelA: UILabel!
     @IBOutlet weak var timePicker: UIPickerView!
     var deck: Deck?
-    var time: Int = 300 //Seconds
+    var time: Int = 0 //Seconds
     
     override func viewDidLoad() {
         super.viewDidLoad()
         labelA.text = "0:00"
         timePicker.delegate = self
         timePicker.dataSource = self
-        
 
         // Do any additional setup after loading the view.
     }
@@ -53,7 +52,7 @@ class TimeSelctionViewController: UIViewController, UIPickerViewDataSource, UIPi
         return pickerData[component].count
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[component][row]
     }
     
@@ -64,8 +63,7 @@ class TimeSelctionViewController: UIViewController, UIPickerViewDataSource, UIPi
     func updateLabel(){
         let minutes = pickerData[0][timePicker.selectedRowInComponent(0)]
         let seconds = pickerData[1][timePicker.selectedRowInComponent(1)]
-        time = Int(minutes)! * 60 + Int(seconds)! * 60
-        
+        time = Int(minutes)! * 60 + Int(seconds)!
         if(Int(seconds)! == 0){
             labelA.text = minutes + ":" + seconds + "0"
         }else{
@@ -74,13 +72,15 @@ class TimeSelctionViewController: UIViewController, UIPickerViewDataSource, UIPi
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var secondViewController = segue.destinationViewController as! GameViewController
-        if(time < 30){
-            secondViewController.time = time
+        if (segue.identifier == "PlayGameSegue"){
+            let secondViewController = segue.destinationViewController as! GameViewController
+            if(time < 30){
+                secondViewController.time = 30
+            }else{
+                secondViewController.time = Double(time)
+            }
+            secondViewController.deck = deck
         }
-        secondViewController.deck = deck
-        secondViewController.time = time
-        
     }
     
 }

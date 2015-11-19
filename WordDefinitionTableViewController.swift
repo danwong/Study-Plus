@@ -69,11 +69,11 @@ class WordDefinitionTableViewController: UITableViewController{
             secondViewController.deck = deck
             secondViewController.rootView = rootView
         }else if(segue.identifier == "ChangeCardSegue"){
-            var destinationViewController = segue.destinationViewController as! DefineViewController
+            let destinationViewController = (segue.destinationViewController as! DefineViewController)
             destinationViewController.card = deck!.getArray()[self.tableView.indexPathForSelectedRow!.row]
             destinationViewController.rootView = rootView
-        }else if(segue.identifier == "SelectTimeSegue"){
-            let secondViewController = (segue.destinationViewController as! TimeSelctionViewController)
+        }else if(segue.identifier == "SelectStudySegue"){
+            let secondViewController = (segue.destinationViewController as! GroupSelfSelectionViewController)
             secondViewController.deck = deck
         }
     }

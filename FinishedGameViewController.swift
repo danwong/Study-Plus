@@ -11,10 +11,12 @@ import UIKit
 class FinishedGameViewController: UIViewController {
     @IBOutlet weak var infoLabel: UILabel!
     
-    
+    var cardsFinished:Double?
+    var timeToFinish:Double?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        infoLabel.text = "You finished " + String(cardsFinished) + " in " + String(timeToFinish)
 
         // Do any additional setup after loading the view.
     }

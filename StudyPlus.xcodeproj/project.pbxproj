@@ -15,6 +15,7 @@
 		386170A61BCF295A005229EF /* StudyPlusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386170A51BCF295A005229EF /* StudyPlusTests.swift */; };
 		386170B11BCF295A005229EF /* StudyPlusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386170B01BCF295A005229EF /* StudyPlusUITests.swift */; };
 		DF02692F1BFE88E900323416 /* FinishedGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF02692E1BFE88E900323416 /* FinishedGameViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		DF0269311BFE900900323416 /* GroupSelfSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0269301BFE900900323416 /* GroupSelfSelectionViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		DF4B23221BF2C0570026AC36 /* DeckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4B23211BF2C0570026AC36 /* DeckTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		DF98E8A21BF5567200C7740D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF98E8A01BF5567200C7740D /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
 		DF98E8A31BF5567200C7740D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF98E8A11BF5567200C7740D /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
@@ -71,6 +72,7 @@
 		386170B01BCF295A005229EF /* StudyPlusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyPlusUITests.swift; sourceTree = "<group>"; };
 		386170B21BCF295A005229EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF02692E1BFE88E900323416 /* FinishedGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FinishedGameViewController.swift; path = ../FinishedGameViewController.swift; sourceTree = "<group>"; };
+		DF0269301BFE900900323416 /* GroupSelfSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupSelfSelectionViewController.swift; sourceTree = "<group>"; };
 		DF4B23211BF2C0570026AC36 /* DeckTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckTableViewCell.swift; sourceTree = "<group>"; };
 		DF98E8A01BF5567200C7740D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = StudyPlus/Bolts.framework; sourceTree = "<group>"; };
 		DF98E8A11BF5567200C7740D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = StudyPlus/Parse.framework; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				DFE486671BE9970400397DA7 /* Card.swift */,
 				DFE486571BE98CA800397DA7 /* DeckTableViewController.swift */,
 				DF4B23211BF2C0570026AC36 /* DeckTableViewCell.swift */,
+				DF0269301BFE900900323416 /* GroupSelfSelectionViewController.swift */,
 				DFE4865B1BE98D1000397DA7 /* TimeSelctionViewController.swift */,
 				DFE4865D1BE98D3600397DA7 /* GameViewController.swift */,
 				DF02692E1BFE88E900323416 /* FinishedGameViewController.swift */,
@@ -350,6 +353,7 @@
 				DFE4865C1BE98D1000397DA7 /* TimeSelctionViewController.swift in Sources */,
 				DFE486581BE98CA800397DA7 /* DeckTableViewController.swift in Sources */,
 				386170931BCF2959005229EF /* ViewController.swift in Sources */,
+				DF0269311BFE900900323416 /* GroupSelfSelectionViewController.swift in Sources */,
 				DFE486661BE98E4100397DA7 /* DefineViewController.swift in Sources */,
 				386170911BCF2959005229EF /* AppDelegate.swift in Sources */,
 				DFE4865E1BE98D3600397DA7 /* GameViewController.swift in Sources */,

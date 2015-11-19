@@ -66,6 +66,7 @@ class GameViewController: UIViewController {
             print("time is up")
             timer?.invalidate()
             timer = nil
+            performSegueWithIdentifier("FinishGameSegue", sender: nil)
         }
         
     }

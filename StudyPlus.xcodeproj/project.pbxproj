@@ -14,6 +14,7 @@
 		3861709B1BCF2959005229EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 386170991BCF2959005229EF /* LaunchScreen.storyboard */; };
 		386170A61BCF295A005229EF /* StudyPlusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386170A51BCF295A005229EF /* StudyPlusTests.swift */; };
 		386170B11BCF295A005229EF /* StudyPlusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386170B01BCF295A005229EF /* StudyPlusUITests.swift */; };
+		DF02692F1BFE88E900323416 /* FinishedGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF02692E1BFE88E900323416 /* FinishedGameViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		DF4B23221BF2C0570026AC36 /* DeckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4B23211BF2C0570026AC36 /* DeckTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		DF98E8A21BF5567200C7740D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF98E8A01BF5567200C7740D /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
 		DF98E8A31BF5567200C7740D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF98E8A11BF5567200C7740D /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
@@ -69,6 +70,7 @@
 		386170AC1BCF295A005229EF /* StudyPlusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudyPlusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		386170B01BCF295A005229EF /* StudyPlusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyPlusUITests.swift; sourceTree = "<group>"; };
 		386170B21BCF295A005229EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF02692E1BFE88E900323416 /* FinishedGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FinishedGameViewController.swift; path = ../FinishedGameViewController.swift; sourceTree = "<group>"; };
 		DF4B23211BF2C0570026AC36 /* DeckTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckTableViewCell.swift; sourceTree = "<group>"; };
 		DF98E8A01BF5567200C7740D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = StudyPlus/Bolts.framework; sourceTree = "<group>"; };
 		DF98E8A11BF5567200C7740D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = StudyPlus/Parse.framework; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				DF4B23211BF2C0570026AC36 /* DeckTableViewCell.swift */,
 				DFE4865B1BE98D1000397DA7 /* TimeSelctionViewController.swift */,
 				DFE4865D1BE98D3600397DA7 /* GameViewController.swift */,
+				DF02692E1BFE88E900323416 /* FinishedGameViewController.swift */,
 				DFE4865F1BE98D7C00397DA7 /* DeckNameViewController.swift */,
 				DFE486631BE98E0800397DA7 /* WordDefinitionTableViewController.swift */,
 				DFE4866F1BE9A17500397DA7 /* WordDefinitionTableViewCell.swift */,
@@ -356,6 +359,7 @@
 				DFE4866A1BE9982F00397DA7 /* Deck.swift in Sources */,
 				DF4B23221BF2C0570026AC36 /* DeckTableViewCell.swift in Sources */,
 				DFE486601BE98D7C00397DA7 /* DeckNameViewController.swift in Sources */,
+				DF02692F1BFE88E900323416 /* FinishedGameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

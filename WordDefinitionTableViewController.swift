@@ -59,10 +59,25 @@ class WordDefinitionTableViewController: UITableViewController{
     }
     
     @IBAction func deleteClicked(sender: AnyObject) {
-        var alert = UIAlertController(title: deck!.name, message: "Are you sure you want to delete?", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default, handler: nil))
+        let alert = UIAlertController(title: deck!.name, message: "Are you sure you want to delete?", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default, handler: {action in
+            switch action.style{
+            case .Default:
+                print("default")
+                //Delete code goes here in default
+            case .Cancel: break
+                //Do Nothing
+            case .Destructive: break
+                //Do Nothing
+            
+            }
+        }))
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func yesClicked(){
+        print("hello")
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){

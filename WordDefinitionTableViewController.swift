@@ -58,10 +58,12 @@ class WordDefinitionTableViewController: UITableViewController{
         return cell
     }
     
-    @IBAction func DoneClicked(sender: AnyObject) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
+    @IBAction func deleteClicked(sender: AnyObject) {
+        var alert = UIAlertController(title: deck!.name, message: "Are you sure you want to delete?", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default, handler: nil))
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
-    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         if (segue.identifier == "DefineCardSegue"){

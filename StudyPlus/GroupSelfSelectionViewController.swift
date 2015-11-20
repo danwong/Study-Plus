@@ -30,7 +30,8 @@ class GroupSelfSelectionViewController: UIViewController {
             let secondViewController = segue.destinationViewController as! TimeSelctionViewController
             secondViewController.deck = deck!
         }else if(segue.identifier == "SelfStudySegue"){
-            //TO BE COMPLETED
+            let secondViewController = segue.destinationViewController as! SelfStudyViewController
+            secondViewController.deck = deck!
         }
     }
 

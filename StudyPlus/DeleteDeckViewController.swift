@@ -1,5 +1,5 @@
 //
-//  FinishedGameViewController.swift
+//  DeleteDeckViewController.swift
 //  StudyPlus
 //
 //  Created by Student 2 on 11/19/15.
@@ -8,14 +8,10 @@
 
 import UIKit
 
-class FinishedGameViewController: UIViewController {
-    @IBOutlet weak var infoLabel: UILabel!
-    var cardsFinished:Int?
-    var timeToFinish:Double?
+class DeleteDeckViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        infoLabel.text = "You finished " + String(cardsFinished!) + " cards in " + String(timeToFinish!)
 
         // Do any additional setup after loading the view.
     }
@@ -26,10 +22,14 @@ class FinishedGameViewController: UIViewController {
     }
     
 
+    /*
+    // MARK: - Navigation
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
+    */
 
 }

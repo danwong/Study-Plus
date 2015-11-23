@@ -11,12 +11,17 @@ import UIKit
 class SelfStudyViewController: UIViewController {
     @IBOutlet weak var dictionaryField: UITextView!
     @IBOutlet weak var termLabel: UILabel!
+    @IBOutlet weak var infoTextView: UITextView!
     
     //need to send info from user
-    var termFirst:Bool = true
+    var termFirst:Bool?
     var deck:Deck?
     var cards:Array<Card> = Array<Card>()
     var index = 0
+    var descript:String = "Swipe up and down to view the term or definition. Swipe left and right to change cards."
+    override func viewWillAppear(animated: Bool) {
+        infoTextView.text = ""
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         cards = (deck?.getArray())!
@@ -63,12 +68,19 @@ class SelfStudyViewController: UIViewController {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     func refreshScreen(){
-        if termFirst{
+        if termFirst!{
             termLabel.text = cards[index].name
             dictionaryField.text = ""
         }else{
             termLabel.text = ""
             dictionaryField.text = cards[index].definition
+        }
+    }
+    @IBAction func infoClicked(sender: AnyObject) {
+        if infoTextView.text == ""{
+            infoTextView.text = descript
+        }else{
+            infoTextView.text = ""
         }
     }
     

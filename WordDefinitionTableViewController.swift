@@ -14,10 +14,11 @@ class WordDefinitionTableViewController: UITableViewController{
     var rootView:DeckTableViewController?
     
     var deck:Deck?
+    var deckIndex:Int?
+    var decks:Array<Deck>?
     
     override func viewWillAppear(animated: Bool) {
         self.tableView.reloadData()
-        print(deck!.getArray())
     }
     
     override func viewDidLoad() {
@@ -51,7 +52,7 @@ class WordDefinitionTableViewController: UITableViewController{
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("DefaultCell", forIndexPath: indexPath) as! WordDefinitionTableViewCell
-    
+        cell.deleteButton = UIButton()
         cell.WordTextField!.text = deck!.getArray()[indexPath.row].name
         cell.DefinitionTextView!.text = deck!.getArray()[indexPath.row].definition
 
@@ -63,8 +64,10 @@ class WordDefinitionTableViewController: UITableViewController{
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default, handler: {action in
             switch action.style{
             case .Default:
-                print("default")
-                //Delete code goes here in default
+                //Delete Deck
+                self.rootView!.decks.removeAtIndex(self.deckIndex!)
+                self.rootView!.saveData()
+                self.navigationController?.popToRootViewControllerAnimated(true)
             case .Cancel: break
                 //Do Nothing
             case .Destructive: break
@@ -76,10 +79,9 @@ class WordDefinitionTableViewController: UITableViewController{
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    func yesClicked(){
-        print("hello")
+    @IBAction func saveClicked(sender: AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         if (segue.identifier == "DefineCardSegue"){
             let secondViewController = (segue.destinationViewController as! DefineViewController)

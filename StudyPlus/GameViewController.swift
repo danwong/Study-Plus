@@ -21,14 +21,18 @@ class GameViewController: UIViewController {
     var progress:Double = 0.0
     var date:NSDate = NSDate()
     var timeToStop:NSTimeInterval = 0.0
-    
+    @IBOutlet weak var infoTextView: UITextView!
+    var timeFinished:Bool = false
+    var descript:String = "Try to get the group to guess the term, without saying the word. Swipe right to advance."
     override func viewWillAppear(animated: Bool) {
+        timeFinished = false
         progress = 0.0
         date = NSDate()
         timeToStop = time!
         timer = NSTimer(timeInterval: refreshRate, target: self, selector: "updateProgress", userInfo: nil, repeats: true)
         NSRunLoop.currentRunLoop().addTimer(timer!, forMode: NSRunLoopCommonModes)
         wordField.text = deck?.getArray()[index].name
+        infoTextView.text = ""
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -60,15 +64,21 @@ class GameViewController: UIViewController {
             index = 0
         }
     }
+    @IBAction func infoClicked(sender: AnyObject) {
+        if infoTextView.text == ""{
+            infoTextView.text = descript
+        }else{
+            infoTextView.text = ""
+        }
+    }
     
     func updateProgress(){
         progress = date.timeIntervalSinceNow * -1
-        print(progress)
         progressBar.progress = Float(progress/timeToStop)
         if(progressBar.progress >= 1.0){
-            print("time is up")
             timer?.invalidate()
             timer = nil
+            timeFinished = true
             performSegueWithIdentifier("FinishGameSegue", sender: nil)
         }
         
@@ -80,9 +90,14 @@ class GameViewController: UIViewController {
         // Pass the selected object to the new view controller.
         if(segue.identifier == "FinishGameSegue"){
             let secondViewController = segue.destinationViewController as! FinishedGameViewController
-            //To Be Added
+            
             secondViewController.cardsFinished = (index + 1)
-            secondViewController.timeToFinish = timeToStop
+            if(timeFinished){
+                secondViewController.timeToFinish = Int(timeToStop)
+            }else{
+                secondViewController.timeToFinish = Int(progress)
+            }
+
         }
     }
 

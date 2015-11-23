@@ -9,12 +9,17 @@
 import UIKit
 
 class GroupSelfSelectionViewController: UIViewController {
-    var deck:Deck?
+    @IBOutlet weak var termDefSelect: UISegmentedControl!
+    @IBOutlet weak var infoTextView: UITextView!
     
+    var deck:Deck?
+    var termFirst:Bool = true
+    var descript:String = "Select either Group Study or Self Study. For Self Study, select Term to view the term first, or defintion to view the definition first."
+    override func viewWillAppear(animated: Bool) {
+        infoTextView.text = ""
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(deck!.getArray())
-
         // Do any additional setup after loading the view.
     }
 
@@ -23,6 +28,21 @@ class GroupSelfSelectionViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func infoClicked(sender: AnyObject) {
+        if infoTextView.text == ""{
+            infoTextView.text = descript
+        }else{
+            infoTextView.text = ""
+        }
+    }
+    @IBAction func optionSelected(sender: AnyObject) {
+        if(termDefSelect.selectedSegmentIndex == 0){
+            termFirst = true
+        }else{
+            termFirst = false
+        }
+        
+    }
 
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -32,6 +52,7 @@ class GroupSelfSelectionViewController: UIViewController {
         }else if(segue.identifier == "SelfStudySegue"){
             let secondViewController = segue.destinationViewController as! SelfStudyViewController
             secondViewController.deck = deck!
+            secondViewController.termFirst = termFirst
         }
     }
 

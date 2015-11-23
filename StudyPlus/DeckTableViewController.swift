@@ -17,6 +17,7 @@ class DeckTableViewController: UITableViewController{
         if(decks.count != 0){
             saveData()
         }
+        self.tableView.reloadData()
 
     }
     override func viewDidLoad() {
@@ -68,6 +69,8 @@ class DeckTableViewController: UITableViewController{
             let secondViewController = segue.destinationViewController as! WordDefinitionTableViewController
             secondViewController.deck = decks[self.tableView.indexPathForSelectedRow!.row]
             secondViewController.rootView = self
+            secondViewController.decks = decks
+            secondViewController.deckIndex = self.tableView.indexPathForSelectedRow!.row
         }
         
         
@@ -75,7 +78,7 @@ class DeckTableViewController: UITableViewController{
     
     func saveData(){
         self.tableView.reloadData()
-        var data = PFObject(className: "StudyPlus")
+        let data = PFObject(className: "StudyPlus")
         var decksArray: Array<Array<Dictionary<String,String>>> = Array<Array<Dictionary<String,String>>>()
         for deck in decks{
             var deckArray: Array<Dictionary<String,String>> = Array<Dictionary<String,String>>()
@@ -93,6 +96,7 @@ class DeckTableViewController: UITableViewController{
         data["Decks"] = decksArray
         data.saveInBackground()
     }
+    
     func openData(){
         let query = PFQuery(className:"StudyPlus")
         query.orderByDescending("createdAt")

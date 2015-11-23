@@ -18,7 +18,11 @@ class TimeSelctionViewController: UIViewController, UIPickerViewDataSource, UIPi
     @IBOutlet weak var timePicker: UIPickerView!
     var deck: Deck?
     var time: Int = 0 //Seconds
-    
+    @IBOutlet weak var infoTextView: UITextView!
+    var descript:String = "Select length of game."
+    override func viewWillAppear(animated: Bool) {
+        infoTextView.text = ""
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         labelA.text = "0:00"
@@ -33,6 +37,14 @@ class TimeSelctionViewController: UIViewController, UIPickerViewDataSource, UIPi
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func infoClicked(sender: AnyObject) {
+        if infoTextView.text == ""{
+            infoTextView.text = descript
+        }else{
+            infoTextView.text = ""
+        }
+    }
+
 
     /*
     // MARK: - Navigation

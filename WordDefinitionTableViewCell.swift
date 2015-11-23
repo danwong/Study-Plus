@@ -11,6 +11,7 @@ import UIKit
 class WordDefinitionTableViewCell: UITableViewCell {
     @IBOutlet weak var WordTextField: UILabel!
     @IBOutlet weak var DefinitionTextView: UITextView!
+    @IBOutlet weak var deleteButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

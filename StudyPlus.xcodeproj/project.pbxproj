@@ -18,6 +18,7 @@
 		DF0269311BFE900900323416 /* GroupSelfSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0269301BFE900900323416 /* GroupSelfSelectionViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		DF0269331BFE9D7A00323416 /* SelfStudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0269321BFE9D7A00323416 /* SelfStudyViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		DF0269351BFEA6C400323416 /* DeleteDeckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0269341BFEA6C400323416 /* DeleteDeckViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		DF20F54D1C03C9E800FAFD8A /* x-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = DF20F54C1C03C9E800FAFD8A /* x-blue.png */; settings = {ASSET_TAGS = (); }; };
 		DF4B23221BF2C0570026AC36 /* DeckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4B23211BF2C0570026AC36 /* DeckTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		DF98E8A21BF5567200C7740D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF98E8A01BF5567200C7740D /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
 		DF98E8A31BF5567200C7740D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF98E8A11BF5567200C7740D /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
@@ -77,6 +78,7 @@
 		DF0269301BFE900900323416 /* GroupSelfSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupSelfSelectionViewController.swift; sourceTree = "<group>"; };
 		DF0269321BFE9D7A00323416 /* SelfStudyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfStudyViewController.swift; sourceTree = "<group>"; };
 		DF0269341BFEA6C400323416 /* DeleteDeckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteDeckViewController.swift; sourceTree = "<group>"; };
+		DF20F54C1C03C9E800FAFD8A /* x-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x-blue.png"; sourceTree = "<group>"; };
 		DF4B23211BF2C0570026AC36 /* DeckTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckTableViewCell.swift; sourceTree = "<group>"; };
 		DF98E8A01BF5567200C7740D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = StudyPlus/Bolts.framework; sourceTree = "<group>"; };
 		DF98E8A11BF5567200C7740D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = StudyPlus/Parse.framework; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				DFE486631BE98E0800397DA7 /* WordDefinitionTableViewController.swift */,
 				DFE4866F1BE9A17500397DA7 /* WordDefinitionTableViewCell.swift */,
 				DFE486651BE98E4100397DA7 /* DefineViewController.swift */,
+				DF20F54C1C03C9E800FAFD8A /* x-blue.png */,
 				386170971BCF2959005229EF /* Assets.xcassets */,
 				386170991BCF2959005229EF /* LaunchScreen.storyboard */,
 				3861709C1BCF2959005229EF /* Info.plist */,
@@ -290,7 +293,6 @@
 				TargetAttributes = {
 					3861708C1BCF2959005229EF = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = R4G6UV7ZU7;
 					};
 					386170A01BCF295A005229EF = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -331,6 +333,7 @@
 			files = (
 				3861709B1BCF2959005229EF /* LaunchScreen.storyboard in Resources */,
 				386170981BCF2959005229EF /* Assets.xcassets in Resources */,
+				DF20F54D1C03C9E800FAFD8A /* x-blue.png in Resources */,
 				386170961BCF2959005229EF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -513,6 +516,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/StudyPlus",
@@ -528,6 +532,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/StudyPlus",

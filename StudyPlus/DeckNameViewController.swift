@@ -11,8 +11,9 @@ import UIKit
 class DeckNameViewController: UIViewController{
     @IBOutlet weak var DeckNameField: UITextField!
     var rootView:DeckTableViewController?
-    var deck: Deck?
+    var deck = Deck()
     var descript:String = "Required Field!"
+    var decks: Array<Deck>?
     @IBOutlet weak var requiredFieldLabel: UILabel!
     
     override func viewWillAppear(animated: Bool) {
@@ -30,7 +31,9 @@ class DeckNameViewController: UIViewController{
     }
     @IBAction func okClicked(sender: AnyObject) {
         if(DeckNameField.text != ""){
-        performSegueWithIdentifier("ViewDeckSegue", sender: nil)
+            deck.name = DeckNameField.text!
+            decks!.append(deck)
+            performSegueWithIdentifier("ViewDeckSegue", sender: nil)
         }else{
             requiredFieldLabel.text = descript
         }
@@ -38,10 +41,12 @@ class DeckNameViewController: UIViewController{
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if(DeckNameField != "ViewDeckSegue"){
-            deck!.name = DeckNameField.text!
+        if(segue.identifier == "ViewDeckSegue"){
+            deck.name = DeckNameField.text!
             let SecondViewController : WordDefinitionTableViewController = segue.destinationViewController as! WordDefinitionTableViewController
-            SecondViewController.deck = deck!
+            SecondViewController.deckIndex = decks!.count - 1
+            //SecondViewController.deck = deck
+            SecondViewController.decks = decks
             SecondViewController.rootView = rootView
         }
     }

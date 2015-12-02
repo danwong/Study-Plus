@@ -57,36 +57,17 @@ class DeckTableViewController: UITableViewController{
         cell.titleView.text = decks[indexPath.row].name
         return cell
     }
-    
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        decks.removeAtIndex(indexPath.row)
-        saveData()
-        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-        
-    }
-    
-    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-        return UITableViewCellEditingStyle.Delete
-        
-    }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "AddDeckSegue"){
-            /*let d = Deck()
+            let d = Deck()
             decks.insert(d, atIndex: 0)
             let secondViewController = segue.destinationViewController as! DeckNameViewController
             secondViewController.deck = decks[0]
             secondViewController.rootView = self
-*/
-            let secondViewController = segue.destinationViewController as! DeckNameViewController
-            secondViewController.decks = decks
-            secondViewController.rootView = self
         }else if(segue.identifier == "ViewDeckSegue"){
             let secondViewController = segue.destinationViewController as! WordDefinitionTableViewController
-            //secondViewController.deck = decks[self.tableView.indexPathForSelectedRow!.row]
+            secondViewController.deck = decks[self.tableView.indexPathForSelectedRow!.row]
             secondViewController.rootView = self
             secondViewController.decks = decks
             secondViewController.deckIndex = self.tableView.indexPathForSelectedRow!.row

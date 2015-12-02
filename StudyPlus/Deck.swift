@@ -31,9 +31,5 @@ class Deck{
     func removeCard(card: Card){
         //To Be Implemented
     }
-    
-    func removeCardAtIndex(index: Int){
-        cards.removeAtIndex(index)
-    }
 
 }

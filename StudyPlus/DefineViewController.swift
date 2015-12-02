@@ -44,7 +44,8 @@ class DefineViewController: UIViewController {
     @IBAction func OKClicked(sender: AnyObject) {
         if(TermField.text != "" && !cardExists){
             card = Card(name: TermField.text!, definition: DefinitionField.text)
-            deck!.addCard(card!)
+            deck?.addCard(card!)
+            rootView?.saveData()
         }else if(cardExists){
             card!.name = TermField.text!
             card!.definition = DefinitionField.text

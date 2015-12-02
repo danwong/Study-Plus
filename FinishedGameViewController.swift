@@ -20,9 +20,6 @@ class FinishedGameViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func DoneClicked(sender: AnyObject) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
-    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

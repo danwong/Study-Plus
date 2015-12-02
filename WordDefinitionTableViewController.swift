@@ -15,7 +15,6 @@ class WordDefinitionTableViewController: UITableViewController{
     
     //var deck:Deck?
     var deckIndex:Int?
-    var deck:Deck?
     var decks:Array<Deck>?
     
     override func viewWillAppear(animated: Bool) {
@@ -25,7 +24,7 @@ class WordDefinitionTableViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         //deck = decks![deckIndex!]
-        HeaderView.title = deck!.name
+        HeaderView.title = decks![deckIndex!].name
 
 
         // Uncomment the following line to preserve selection between presentations
@@ -49,14 +48,14 @@ class WordDefinitionTableViewController: UITableViewController{
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return deck!.getArray().count
+        return decks![deckIndex!].getArray().count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("DefaultCell", forIndexPath: indexPath) as! WordDefinitionTableViewCell
         cell.deleteButton = UIButton()
-        cell.WordTextField!.text = deck!.getArray()[indexPath.row].name
-        cell.DefinitionTextView!.text = deck!.getArray()[indexPath.row].definition
+        cell.WordTextField!.text = decks![deckIndex!].getArray()[indexPath.row].name
+        cell.DefinitionTextView!.text = decks![deckIndex!].getArray()[indexPath.row].definition
 
         return cell
     }
@@ -65,7 +64,7 @@ class WordDefinitionTableViewController: UITableViewController{
         return true
     }
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        deck!.removeCardAtIndex(indexPath.row)
+        decks![deckIndex!].removeCardAtIndex(indexPath.row)
         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         
     }
@@ -82,19 +81,19 @@ class WordDefinitionTableViewController: UITableViewController{
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         if (segue.identifier == "DefiningCardSegue"){
             let secondViewController = (segue.destinationViewController as! DefineViewController)
-            secondViewController.deck = deck!
+            secondViewController.deck = decks![deckIndex!]
             secondViewController.rootView = rootView
         }else if(segue.identifier == "ChangeCardSegue"){
             let destinationViewController = (segue.destinationViewController as! DefineViewController)
-            destinationViewController.card = deck!.getArray()[self.tableView.indexPathForSelectedRow!.row]
+            destinationViewController.card = decks![deckIndex!].getArray()[self.tableView.indexPathForSelectedRow!.row]
             destinationViewController.rootView = rootView
         }else if(segue.identifier == "SelectStudySegue"){
             let secondViewController = (segue.destinationViewController as! GroupSelfSelectionViewController)
-            secondViewController.deck = deck!
+            secondViewController.deck = decks![deckIndex!]
         }else{
             //DefineCardSegue
             let secondViewController = (segue.destinationViewController as! DefineViewController)
-            secondViewController.deck = deck!
+            secondViewController.deck = decks![deckIndex!]
             secondViewController.rootView = rootView
         }
     }

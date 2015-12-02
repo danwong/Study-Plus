@@ -75,17 +75,19 @@ class DeckTableViewController: UITableViewController{
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "AddDeckSegue"){
-            let d = Deck()
+            /*let d = Deck()
             decks.insert(d, atIndex: 0)
             let secondViewController = segue.destinationViewController as! DeckNameViewController
             secondViewController.deck = decks[0]
+            secondViewController.rootView = self
+*/
+            let secondViewController = segue.destinationViewController as! DeckNameViewController
             secondViewController.decks = decks
             secondViewController.rootView = self
         }else if(segue.identifier == "ViewDeckSegue"){
             let secondViewController = segue.destinationViewController as! WordDefinitionTableViewController
             //secondViewController.deck = decks[self.tableView.indexPathForSelectedRow!.row]
             secondViewController.rootView = self
-            secondViewController.deck = decks[tableView.indexPathForSelectedRow!.row]
             secondViewController.decks = decks
             secondViewController.deckIndex = self.tableView.indexPathForSelectedRow!.row
         }

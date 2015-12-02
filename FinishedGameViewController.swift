@@ -25,6 +25,9 @@ class FinishedGameViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func doneClicked(sender: AnyObject) {
+        navigationController?.popToRootViewControllerAnimated(true)
+    }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -59,7 +59,7 @@ class GameViewController: UIViewController {
             wordField.text = deck?.getArray()[index].name
         }else{
             wordField.text = deck?.getArray()[0].name
-            index++
+            //index++
             performSegueWithIdentifier("FinishGameSegue", sender: nil)
             index = 0
         }

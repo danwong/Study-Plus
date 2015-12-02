@@ -17,19 +17,30 @@ class DeckTableViewController: UITableViewController{
         if(decks.count != 0){
             saveData()
         }
+        
+        var numRemoves:Int = 0
+        for(index, d) in decks.enumerate(){
+            if(d.getArray().count == 0){
+                decks.removeAtIndex(index - numRemoves)
+                numRemoves++
+            }
+        }
         self.tableView.reloadData()
 
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         openData()
+        
+        var numRemoves:Int = 0
+        for(index, d) in decks.enumerate(){
+            if(d.getArray().count == 0){
+                decks.removeAtIndex(index - numRemoves)
+                numRemoves++
+            }
+        }
+        
         self.tableView.reloadData()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {

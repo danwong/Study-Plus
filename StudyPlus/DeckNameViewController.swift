@@ -30,10 +30,15 @@ class DeckNameViewController: UIViewController{
     }
     @IBAction func okClicked(sender: AnyObject) {
         if(DeckNameField.text != ""){
-        performSegueWithIdentifier("ViewDeckSegue", sender: nil)
+            performSegueWithIdentifier("ViewDeckSegue", sender: nil)
         }else{
             requiredFieldLabel.text = descript
         }
+    }
+    
+    //Hide Keyboard When enter clicked
+    @IBAction func actionTriggered(sender: AnyObject) {
+        self.view.endEditing(true)
     }
     
     
@@ -46,15 +51,6 @@ class DeckNameViewController: UIViewController{
         }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

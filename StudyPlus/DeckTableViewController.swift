@@ -14,10 +14,7 @@ class DeckTableViewController: UITableViewController{
     var decks:Array<Deck> = Array<Deck>()
     
     override func viewWillAppear(animated: Bool) {
-        if(decks.count != 0){
-            saveData()
-        }
-        
+        //Remove Empty Decks
         var numRemoves:Int = 0
         for(index, d) in decks.enumerate(){
             if(d.getArray().count == 0){
@@ -25,6 +22,12 @@ class DeckTableViewController: UITableViewController{
                 numRemoves++
             }
         }
+        
+        //Save Data
+        if(decks.count != 0){
+            saveData()
+        }
+        
         self.tableView.reloadData()
 
     }
@@ -32,6 +35,7 @@ class DeckTableViewController: UITableViewController{
         super.viewDidLoad()
         openData()
         
+        //Remove Empty Decks
         var numRemoves:Int = 0
         for(index, d) in decks.enumerate(){
             if(d.getArray().count == 0){

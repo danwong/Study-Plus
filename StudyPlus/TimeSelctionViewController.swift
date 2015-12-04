@@ -14,7 +14,6 @@ class TimeSelctionViewController: UIViewController, UIPickerViewDataSource, UIPi
         ["0","5","10","15","20","25","30","35","40","45","50","55"]
     ]
     
-    @IBOutlet weak var labelA: UILabel!
     @IBOutlet weak var timePicker: UIPickerView!
     var deck: Deck?
     var time: Int = 0 //Seconds
@@ -25,7 +24,6 @@ class TimeSelctionViewController: UIViewController, UIPickerViewDataSource, UIPi
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        labelA.text = "0:00"
         timePicker.delegate = self
         timePicker.dataSource = self
 
@@ -76,11 +74,6 @@ class TimeSelctionViewController: UIViewController, UIPickerViewDataSource, UIPi
         let minutes = pickerData[0][timePicker.selectedRowInComponent(0)]
         let seconds = pickerData[1][timePicker.selectedRowInComponent(1)]
         time = Int(minutes)! * 60 + Int(seconds)!
-        if(Int(seconds)! == 0){
-            labelA.text = minutes + ":" + seconds + "0"
-        }else{
-            labelA.text = minutes + ":" + seconds
-        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
